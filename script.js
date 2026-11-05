@@ -1,3 +1,74 @@
+// Langue : anglais ou français selon le navigateur, bouton FR / EN (choix mémorisé)
+(function () {
+  const EN = {
+    nav1: "Home", nav2: "About", nav3: "Projects", nav4: "Skills",
+    themeAria: "Change theme", themeD: "Black · green", themeL: "White",
+    avail: "Available now",
+    kicker: "Student at Epitech · Software, back-end, DevOps, data &amp; AI",
+    h1a: "Hi, I'm Kohy.", h1b: "I build applications,", h1c: "from idea to launch.",
+    rhythm: "2-year work-study programme<br>4 weeks at work, 2 weeks at school",
+    cta: "Contact me →",
+    l1: "01 — About", aboutH: "My journey.", altMe: "Photo of Kohy Ble",
+    about1: "I started with a two-year degree in Networks and Telecoms (DUT), learning how to keep a company's computers and networks running. I soon wanted to build the software that runs on them myself.",
+    about2: "So I went on to a Bachelor's degree in Computer Science at the University of Angers, where I got into artificial intelligence and application development. Now studying for an MSc in Information Systems Architecture at Epitech, I'm looking for a company where I can learn and work on real projects.",
+    about3: "Outside class, I play basketball for the university club and keep up with tech news.",
+    l2: "02 — Projects", projH: "A few projects.",
+    altE1: "Ereuna home page: “Job offers come to you. You stay in control.”", altE2: "Ereuna dashboard: relevant offers and automatic collection",
+    eTag: "Personal project · since September 2026 · in progress",
+    eH: "Ereuna, my job search assistant",
+    eP: "An app that finds internship and work-study offers, ranks them against my profile and helps me prepare each application. It never makes anything up and never sends anything without my approval.",
+    eR: "Built with AI agents, from collecting offers to the interface.",
+    altH: "Interactive map of Brest: where people live, bus stops and the tram line",
+    hTag: "Team of 5 · October 2026 · 2 days",
+    hP: "With my team, we checked whether people in Brest and Rennes have a bus or tram stop near home. I built the interactive maps, like this one.",
+    hR: "Result: 3 out of 4 people in Brest live within 400 m of a stop, compared with just over 1 in 2 in Rennes.",
+    altI: "Illustration: photos sorted by category",
+    iTag: "Solo project · April 2026 · 1 week", iH: "Image recognition",
+    iP: "Teaching a computer to recognise what a photo shows: a plane, a cat, a boat… I tried five methods, from the simplest to the most advanced.",
+    iR: "Result: it correctly recognises 94% of images, compared with 10% by guessing.",
+    altR: "Illustration: the shape of a song and the drum hits it found",
+    rTag: "Pair project · LERIA lab, Angers · March to May 2026", rH: "A music game that builds its own levels",
+    rP: "A program that listens to a song and spots the drum hits, to build a level for a Guitar Hero-style game on its own. I also built the game's interface.",
+    rR: "Result: it finds 95% of drum hits, tested on 12 songs.",
+    altB: "Bomberman screenshot: bombs exploding on the board",
+    bTag: "February 2026 · 1 week",
+    bP: "My own version of Bomberman: drop bombs, watch them explode, and pick up power-ups.",
+    bR: "Coded in one week, in C++.",
+    now: "Right now",
+    oP: "A tool that logs a company's IT incidents and checks that they are fixed on time.", oI: "Since August 2026 · Python, Docker",
+    tP: "A web app where employees log their working hours. I work on the screens, as part of a team.", tI: "Epitech project · October 2026 to January 2027 · React",
+    code: 'My code is on <a href="https://github.com/bkao49">GitHub</a>',
+    l3: "03 — Skills", s1: "Artificial intelligence", s1d: "Machine learning, image recognition, AI agents",
+    s2: "Data", s2d: "Python, SQL, databases, interactive maps",
+    s4: "Tools", s4d: "Git, Docker, Linux, networking",
+    s5: "Soft skills", s5d: "Teamwork, organisation, communication, agile methods",
+    talk: "Let's talk.", cvReq: "CV available on request, by email or on LinkedIn."
+  };
+  const root = document.documentElement, FR = {};
+  const txt = [...document.querySelectorAll("[data-i18n]")], alt = [...document.querySelectorAll("[data-i18n-alt]")], aria = [...document.querySelectorAll("[data-i18n-aria]")];
+  txt.forEach(e => FR[e.dataset.i18n] = e.innerHTML);
+  alt.forEach(e => FR[e.dataset.i18nAlt] = e.alt);
+  aria.forEach(e => FR[e.dataset.i18nAria] = e.getAttribute("aria-label"));
+  function apply(lang) {
+    const d = lang === "en" ? EN : FR;
+    txt.forEach(e => { const v = d[e.dataset.i18n]; if (v != null) e.innerHTML = v; });
+    alt.forEach(e => { const v = d[e.dataset.i18nAlt]; if (v != null) e.alt = v; });
+    aria.forEach(e => { const v = d[e.dataset.i18nAria]; if (v != null) e.setAttribute("aria-label", v); });
+    document.querySelectorAll("[data-src-en]").forEach(e => { if (!e.dataset.srcFr) e.dataset.srcFr = e.getAttribute("src"); e.setAttribute("src", lang === "en" ? e.dataset.srcEn : e.dataset.srcFr); });
+    root.lang = lang;
+  }
+  let lang = null;
+  try { lang = localStorage.getItem("kb-lang"); } catch (e) {}
+  if (!lang) lang = (navigator.languages || [navigator.language || "fr"]).some(l => /^fr/i.test(l)) ? "fr" : "en";
+  if (location.hash.indexOf("en") > -1 && location.hash.indexOf("static") > -1) lang = "en";
+  apply(lang);
+  document.getElementById("lang").addEventListener("click", () => {
+    const next = root.lang === "en" ? "fr" : "en";
+    apply(next);
+    try { localStorage.setItem("kb-lang", next); } catch (e) {}
+  });
+})();
+
 // Thème noir/vert ou blanc, particules en fond, halo, animations au défilement.
 (function () {
   const root = document.documentElement;

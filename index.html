@@ -16,31 +16,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=8">
+<link rel="stylesheet" href="style.css?v=9">
 <script>document.documentElement.classList.add("js");try{var t=localStorage.getItem("kb-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
 <div id="bar" aria-hidden="true"></div>
 
 <nav class="pill" aria-label="Navigation">
-  <a href="#top">Accueil</a><a href="#apropos">À propos</a><a href="#projets">Projets</a><a href="#competences">Compétences</a><a href="#contact">Contact</a>
+  <a href="#top" data-i18n="nav1">Accueil</a><a href="#apropos" data-i18n="nav2">À propos</a><a href="#projets" data-i18n="nav3">Projets</a><a href="#competences" data-i18n="nav4">Compétences</a><a href="#contact">Contact</a>
 </nav>
 
 <div class="grid" aria-hidden="true"></div><div class="glow" aria-hidden="true"></div><canvas id="fx" aria-hidden="true"></canvas><canvas id="code" aria-hidden="true"></canvas>
 
 <div class="topbar">
   <a class="brand" href="#top">Kohy Ble</a>
-  <button id="theme" class="toggle" type="button" aria-label="Changer de thème"><span class="o d">Noir · vert</span><span class="o l">Blanc</span></button>
+  <div class="switches">
+    <button id="lang" class="toggle" type="button" aria-label="Langue / Language"><span class="o fr">FR</span><span class="o en">EN</span></button>
+    <button id="theme" class="toggle" type="button" data-i18n-aria="themeAria" aria-label="Changer de thème"><span class="o d" data-i18n="themeD">Noir · vert</span><span class="o l" data-i18n="themeL">Blanc</span></button>
+  </div>
 </div>
 
 <header class="hero" id="top">
-  <div class="meta mono"><span>Portfolio</span><span class="dot">Disponible immédiatement</span></div>
+  <div class="meta mono"><span>Portfolio</span><span class="dot" data-i18n="avail">Disponible immédiatement</span></div>
   <div class="hero-main">
-    <p class="mono kicker">Étudiant à Epitech · Développement, back-end, DevOps, data et IA</p>
-    <h1><span class="ln"><span>Bonjour, je suis Kohy.</span></span><span class="ln"><span>Je crée des applications,</span></span><span class="ln"><span><em>de l'idée à la mise en ligne.</em></span></span></h1>
+    <p class="mono kicker" data-i18n="kicker">Étudiant à Epitech · Développement, back-end, DevOps, data et IA</p>
+    <h1><span class="ln"><span data-i18n="h1a">Bonjour, je suis Kohy.</span></span><span class="ln"><span data-i18n="h1b">Je crée des applications,</span></span><span class="ln"><span><em data-i18n="h1c">de l'idée à la mise en ligne.</em></span></span></h1>
     <div class="hero-foot">
-      <p class="mono">Alternance de 2 ans<br>4 semaines en entreprise, 2 semaines à l'école</p>
-      <a class="btn" href="#contact">Me contacter →</a>
+      <p class="mono" data-i18n="rhythm">Alternance de 2 ans<br>4 semaines en entreprise, 2 semaines à l'école</p>
+      <a class="btn" href="#contact" data-i18n="cta">Me contacter →</a>
     </div>
   </div>
 </header>
@@ -48,97 +51,97 @@
 <main>
 
 <section id="apropos">
-  <p class="label mono">01 — À propos</p>
+  <p class="label mono" data-i18n="l1">01 — À propos</p>
   <div class="about">
-    <img class="me rv" src="photo.jpg" alt="Photo de Kohy Ble" width="500" height="500">
+    <img class="me rv" src="photo.jpg" alt="Photo de Kohy Ble" data-i18n-alt="altMe" width="500" height="500">
     <div class="rv">
-      <h2>Mon parcours.</h2>
-      <p>J'ai commencé par un DUT Réseaux et Télécoms : j'apprenais à faire fonctionner les ordinateurs et les réseaux d'une entreprise. Très vite, j'ai eu envie de créer moi-même les programmes qui tournent dessus.</p>
-      <p>Je suis donc parti en licence informatique à l'Université d'Angers, où je me suis intéressé à l'intelligence artificielle et au développement d'applications. Aujourd'hui en MSc Architecte des Systèmes d'Information à Epitech, je cherche une entreprise pour apprendre et participer à de vrais projets.</p>
-      <p>En dehors des cours, je joue au basket au club de l'université et je suis l'actualité de la tech.</p>
+      <h2 data-i18n="aboutH">Mon parcours.</h2>
+      <p data-i18n="about1">J'ai commencé par un DUT Réseaux et Télécoms : j'apprenais à faire fonctionner les ordinateurs et les réseaux d'une entreprise. Très vite, j'ai eu envie de créer moi-même les programmes qui tournent dessus.</p>
+      <p data-i18n="about2">Je suis donc parti en licence informatique à l'Université d'Angers, où je me suis intéressé à l'intelligence artificielle et au développement d'applications. Aujourd'hui en MSc Architecte des Systèmes d'Information à Epitech, je cherche une entreprise pour apprendre et participer à de vrais projets.</p>
+      <p data-i18n="about3">En dehors des cours, je joue au basket au club de l'université et je suis l'actualité de la tech.</p>
     </div>
   </div>
 </section>
 
 <section id="projets">
-  <p class="label mono">02 — Projets</p>
-  <h2 class="rv">Quelques projets.</h2>
+  <p class="label mono" data-i18n="l2">02 — Projets</p>
+  <h2 class="rv" data-i18n="projH">Quelques projets.</h2>
   <div class="cards">
     <article class="card wide rv">
-      <div class="shots"><img src="ereuna-accueil.jpg" alt="Page d'accueil d'Ereuna : « Les offres viennent à toi. Tu gardes la main. »" loading="lazy"><img src="ereuna-tableau.jpg" alt="Tableau de bord d'Ereuna : offres pertinentes et collecte automatique" loading="lazy"></div>
+      <div class="shots"><img src="ereuna-accueil.jpg" alt="Page d'accueil d'Ereuna : « Les offres viennent à toi. Tu gardes la main. »" data-i18n-alt="altE1" loading="lazy"><img src="ereuna-tableau.jpg" alt="Tableau de bord d'Ereuna : offres pertinentes et collecte automatique" data-i18n-alt="altE2" loading="lazy"></div>
       <div class="body">
-        <p class="mono tag">Projet personnel · depuis septembre 2026 · en cours</p>
-        <h3>Ereuna, mon assistant de recherche d'alternance</h3>
-        <p>Une application qui va chercher les offres de stage et d'alternance, les classe selon mon profil et m'aide à préparer chaque candidature. Elle n'invente rien et n'envoie rien sans mon accord.</p>
-        <p class="result">Conçue avec des agents IA, de la collecte des offres jusqu'à l'interface.</p>
+        <p class="mono tag" data-i18n="eTag">Projet personnel · depuis septembre 2026 · en cours</p>
+        <h3 data-i18n="eH">Ereuna, mon assistant de recherche d'alternance</h3>
+        <p data-i18n="eP">Une application qui va chercher les offres de stage et d'alternance, les classe selon mon profil et m'aide à préparer chaque candidature. Elle n'invente rien et n'envoie rien sans mon accord.</p>
+        <p class="result" data-i18n="eR">Conçue avec des agents IA, de la collecte des offres jusqu'à l'interface.</p>
       </div>
     </article>
     <article class="card rv">
-      <img src="hackathon-brest.jpg" alt="Carte interactive de Brest : où vivent les habitants, arrêts de bus et ligne de tram" loading="lazy">
+      <img src="hackathon-brest.jpg" alt="Carte interactive de Brest : où vivent les habitants, arrêts de bus et ligne de tram" data-i18n-alt="altH" loading="lazy">
       <div class="body">
-        <p class="mono tag">Équipe de 5 · octobre 2026 · 2 jours</p>
+        <p class="mono tag" data-i18n="hTag">Équipe de 5 · octobre 2026 · 2 jours</p>
         <h3>Hackathon Citiz × Microsoft</h3>
-        <p>Avec mon équipe, nous avons regardé si les habitants de Brest et de Rennes ont un arrêt de bus ou de tram près de chez eux. J'ai réalisé les cartes interactives, comme celle-ci.</p>
-        <p class="result">Résultat : 3 habitants de Brest sur 4 ont un arrêt à moins de 400 m, contre un peu plus d'1 sur 2 à Rennes.</p>
+        <p data-i18n="hP">Avec mon équipe, nous avons regardé si les habitants de Brest et de Rennes ont un arrêt de bus ou de tram près de chez eux. J'ai réalisé les cartes interactives, comme celle-ci.</p>
+        <p class="result" data-i18n="hR">Résultat : 3 habitants de Brest sur 4 ont un arrêt à moins de 400 m, contre un peu plus d'1 sur 2 à Rennes.</p>
       </div>
     </article>
     <article class="card rv">
-      <img src="images.svg" alt="Illustration : des photos classées par catégorie" loading="lazy">
+      <img src="images.svg" data-src-en="images-en.svg" alt="Illustration : des photos classées par catégorie" data-i18n-alt="altI" loading="lazy">
       <div class="body">
-        <p class="mono tag">Projet seul · avril 2026 · 1 semaine</p>
-        <h3>Reconnaissance d'images</h3>
-        <p>Apprendre à un ordinateur à reconnaître ce que montre une photo : un avion, un chat, un bateau… J'ai essayé cinq méthodes, de la plus simple à la plus avancée.</p>
-        <p class="result">Résultat : il reconnaît correctement 94 % des images, contre 10 % en répondant au hasard.</p>
+        <p class="mono tag" data-i18n="iTag">Projet seul · avril 2026 · 1 semaine</p>
+        <h3 data-i18n="iH">Reconnaissance d'images</h3>
+        <p data-i18n="iP">Apprendre à un ordinateur à reconnaître ce que montre une photo : un avion, un chat, un bateau… J'ai essayé cinq méthodes, de la plus simple à la plus avancée.</p>
+        <p class="result" data-i18n="iR">Résultat : il reconnaît correctement 94 % des images, contre 10 % en répondant au hasard.</p>
       </div>
     </article>
     <article class="card rv">
-      <img src="rythme.svg" alt="Illustration : la forme d'une chanson et les coups de batterie repérés" loading="lazy">
+      <img src="rythme.svg" data-src-en="rythme-en.svg" alt="Illustration : la forme d'une chanson et les coups de batterie repérés" data-i18n-alt="altR" loading="lazy">
       <div class="body">
-        <p class="mono tag">En binôme · laboratoire LERIA, Angers · mars à mai 2026</p>
-        <h3>Un jeu musical qui crée ses niveaux</h3>
-        <p>Un programme qui écoute une chanson et repère les coups de batterie, pour fabriquer tout seul le niveau d'un jeu du type Guitar Hero. J'ai aussi fait l'interface du jeu.</p>
-        <p class="result">Résultat : il retrouve 95 % des coups de batterie, testé sur 12 chansons.</p>
+        <p class="mono tag" data-i18n="rTag">En binôme · laboratoire LERIA, Angers · mars à mai 2026</p>
+        <h3 data-i18n="rH">Un jeu musical qui crée ses niveaux</h3>
+        <p data-i18n="rP">Un programme qui écoute une chanson et repère les coups de batterie, pour fabriquer tout seul le niveau d'un jeu du type Guitar Hero. J'ai aussi fait l'interface du jeu.</p>
+        <p class="result" data-i18n="rR">Résultat : il retrouve 95 % des coups de batterie, testé sur 12 chansons.</p>
       </div>
     </article>
     <article class="card rv">
-      <img src="bomberman.jpg" alt="Capture du jeu Bomberman : des bombes qui explosent sur le plateau" loading="lazy">
+      <img src="bomberman.jpg" alt="Capture du jeu Bomberman : des bombes qui explosent sur le plateau" data-i18n-alt="altB" loading="lazy">
       <div class="body">
-        <p class="mono tag">Février 2026 · 1 semaine</p>
+        <p class="mono tag" data-i18n="bTag">Février 2026 · 1 semaine</p>
         <h3>Bomberman</h3>
-        <p>Ma propre version du jeu Bomberman : on pose des bombes, elles explosent, et on ramasse des bonus.</p>
-        <p class="result">Codé en une semaine, en C++.</p>
+        <p data-i18n="bP">Ma propre version du jeu Bomberman : on pose des bombes, elles explosent, et on ramasse des bonus.</p>
+        <p class="result" data-i18n="bR">Codé en une semaine, en C++.</p>
       </div>
     </article>
   </div>
 
-  <h3 class="sub mono rv">En ce moment</h3>
+  <h3 class="sub mono rv" data-i18n="now">En ce moment</h3>
   <ul class="rows small">
-    <li class="row rv"><div class="main"><h3>OpsFlow</h3><p>Un outil qui enregistre les pannes informatiques d'une entreprise et vérifie qu'elles sont réparées à temps.</p></div><div class="info"><span class="mono">Depuis août 2026 · Python, Docker</span></div></li>
-    <li class="row rv"><div class="main"><h3>Time Manager</h3><p>Une application web où les employés enregistrent leurs heures de travail. Je m'occupe des écrans, en équipe.</p></div><div class="info"><span class="mono">Projet Epitech · octobre 2026 à janvier 2027 · React</span></div></li>
+    <li class="row rv"><div class="main"><h3>OpsFlow</h3><p data-i18n="oP">Un outil qui enregistre les pannes informatiques d'une entreprise et vérifie qu'elles sont réparées à temps.</p></div><div class="info"><span class="mono" data-i18n="oI">Depuis août 2026 · Python, Docker</span></div></li>
+    <li class="row rv"><div class="main"><h3>Time Manager</h3><p data-i18n="tP">Une application web où les employés enregistrent leurs heures de travail. Je m'occupe des écrans, en équipe.</p></div><div class="info"><span class="mono" data-i18n="tI">Projet Epitech · octobre 2026 à janvier 2027 · React</span></div></li>
   </ul>
-  <p class="note mono">Mon code est sur <a href="https://github.com/bkao49">GitHub</a></p>
+  <p class="note mono" data-i18n="code">Mon code est sur <a href="https://github.com/bkao49">GitHub</a></p>
 </section>
 
 <section id="competences">
-  <p class="label mono">03 — Compétences</p>
+  <p class="label mono" data-i18n="l3">03 — Compétences</p>
   <dl class="skills">
-    <div class="rv"><dt class="mono">Intelligence artificielle</dt><dd>Machine learning, reconnaissance d'images, agents IA</dd></div>
-    <div class="rv"><dt class="mono">Données</dt><dd>Python, SQL, bases de données, cartes interactives</dd></div>
+    <div class="rv"><dt class="mono" data-i18n="s1">Intelligence artificielle</dt><dd data-i18n="s1d">Machine learning, reconnaissance d'images, agents IA</dd></div>
+    <div class="rv"><dt class="mono" data-i18n="s2">Données</dt><dd data-i18n="s2d">Python, SQL, bases de données, cartes interactives</dd></div>
     <div class="rv"><dt class="mono">Applications</dt><dd>React, JavaScript, PHP, Java, C++</dd></div>
-    <div class="rv"><dt class="mono">Outils</dt><dd>Git, Docker, Linux, réseaux</dd></div>
-    <div class="rv"><dt class="mono">Savoir-être</dt><dd>Travail d'équipe, organisation, communication, méthode agile</dd></div>
+    <div class="rv"><dt class="mono" data-i18n="s4">Outils</dt><dd data-i18n="s4d">Git, Docker, Linux, réseaux</dd></div>
+    <div class="rv"><dt class="mono" data-i18n="s5">Savoir-être</dt><dd data-i18n="s5d">Travail d'équipe, organisation, communication, méthode agile</dd></div>
   </dl>
 </section>
 
 <section class="contact" id="contact">
   <p class="label mono">04 — Contact</p>
-  <h2 class="huge rv">Discutons.</h2>
+  <h2 class="huge rv" data-i18n="talk">Discutons.</h2>
   <a class="mail rv" href="mailto:bleange0506@gmail.com">bleange0506@gmail.com</a>
   <p class="links mono rv"><a href="https://www.linkedin.com/in/kohy-ble-728755209/">LinkedIn</a><a href="https://github.com/bkao49">GitHub</a></p>
-  <p class="links mono rv">CV disponible sur demande, par e-mail ou sur LinkedIn.</p>
+  <p class="links mono rv" data-i18n="cvReq">CV disponible sur demande, par e-mail ou sur LinkedIn.</p>
   <footer class="mono">© 2026 Kohy Ble</footer>
 </section>
 </main>
-<script src="script.js?v=8"></script>
+<script src="script.js?v=9"></script>
 </body>
 </html>
